@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>  // for max_element
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;  // Read the number of height measurements
+
+    vector<int> heights(n);
+
+    // Read the height measurements
+    for (int i = 0; i < n; ++i) {
+        cin >> heights[i];
+    }
+
+    // Find the maximum height
+    int max_height = *max_element(heights.begin(), heights.end());
+
+    // Output the maximum height
+    cout << max_height << endl;
+
+    return 0;
+}
