@@ -1,0 +1,20 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+int main() {
+    // Read input from the user
+    string name;
+    getline(cin, name);
+
+    // Check if the name length is between 2 and 100 (since 1 < length <= 100)
+    if (name.length() > 1 && name.length() <= 100) {
+        // Print the greeting message
+        cout << "Hello, " << name << "!" << endl;
+    } else {
+        cerr << "Error: The name length must be between 2 and 100 characters." << endl;
+    }
+
+    return 0;
+}
