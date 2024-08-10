@@ -1,0 +1,48 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int r, c;
+    cin >> r >> c; // Read number of rows (r) and columns (c)
+
+    // Read Justice League power levels
+    vector<vector<int>> justice(r, vector<int>(c));
+    for (int i = 0; i < r; ++i) {
+        for (int j = 0; j < c; ++j) {
+            cin >> justice[i][j];
+        }
+    }
+
+    // Read Villains power levels
+    vector<vector<int>> villains(r, vector<int>(c));
+    for (int i = 0; i < r; ++i) {
+        for (int j = 0; j < c; ++j) {
+            cin >> villains[i][j];
+        }
+    }
+
+    // Count winners
+    int justiceCount = 0;
+    int villainsCount = 0;
+    for (int i = 0; i < r; ++i) {
+        for (int j = 0; j < c; ++j) {
+            if (justice[i][j] > villains[i][j]) {
+                justiceCount++;
+            } else if (villains[i][j] > justice[i][j]) {
+                villainsCount++;
+            }
+        }
+    }
+
+    // Determine the result
+    if (justiceCount > villainsCount) {
+        cout << "Justice League" << endl;
+    } else if (villainsCount > justiceCount) {
+        cout << "Villains" << endl;
+    } else {
+        cout << "Tie" << endl;
+    }
+
+    return 0;
+}
